@@ -1,4 +1,3 @@
-const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
 var cors = require("cors");
@@ -13,18 +12,6 @@ var adminRoutes = require("./routes/admin");
 
 const DB =
   "mongodb+srv://Harshida:Shaily@19210@cluster0.xw2wwzd.mongodb.net/quiz?retryWrites=true&w=majority";
-
-mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  })
-  .then(() => {
-    console.log(`connection successfull.`);
-  })
-  .catch((err) => console.log(`no connection`));
 
 // some dependency
 app.use(express.urlencoded({ extended: true }));
@@ -42,8 +29,8 @@ app.use(cors());
 // app.options('*', cors())
 
 //database connection
-// const db = require("./database/db");
-// db();
+const db = require("./database/db");
+db();
 // app.use(function (req, res, next) {
 // res.header("Access-Control-Allow-Headers", "*")
 // res.header("Access-Control-Allow-Headers","Access-Control-Allow-Headers")

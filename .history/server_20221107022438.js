@@ -15,12 +15,7 @@ const DB =
   "mongodb+srv://Harshida:Shaily@19210@cluster0.xw2wwzd.mongodb.net/quiz?retryWrites=true&w=majority";
 
 mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  })
+  .connect(DB)
   .then(() => {
     console.log(`connection successfull.`);
   })

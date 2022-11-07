@@ -14,17 +14,9 @@ var adminRoutes = require("./routes/admin");
 const DB =
   "mongodb+srv://Harshida:Shaily@19210@cluster0.xw2wwzd.mongodb.net/quiz?retryWrites=true&w=majority";
 
-mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  })
-  .then(() => {
-    console.log(`connection successfull.`);
-  })
-  .catch((err) => console.log(`no connection`));
+mongoose.connect(DB).then(() => {
+  console.log(`connection successfull.`);
+});
 
 // some dependency
 app.use(express.urlencoded({ extended: true }));
